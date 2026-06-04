@@ -1,2 +1,2 @@
 # hypertext-and-hypermedia
-Hypertext-and-Hypermedia
+Юдін Юрій Олегович, ПЗПІ-25-2
