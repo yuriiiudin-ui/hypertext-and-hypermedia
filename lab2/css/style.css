@@ -1,0 +1,127 @@
+/* lab2/css/style.css - BEM & CSS Grid */
+body {
+    font-family: 'Inter', sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #121212;
+    color: #e0e0e0;
+}
+
+.page-wrapper {
+    display: grid;
+    grid-template-columns: 1fr 3fr 1fr;
+    grid-template-rows: auto 1fr auto;
+    grid-template-areas: 
+        "header header header"
+        "sidebar-left main sidebar-right"
+        "footer footer footer";
+    min-height: 100vh;
+    gap: 20px;
+    max-width: 1400px;
+    margin: 0 auto;
+    padding: 20px;
+}
+
+.header {
+    grid-area: header;
+    background-color: #1e1e1e;
+    padding: 20px;
+    border-radius: 8px;
+    text-align: center;
+    border-bottom: 3px solid #bb86fc;
+}
+
+.header__title {
+    margin: 0;
+    color: #bb86fc;
+}
+
+.nav {
+    margin-top: 15px;
+}
+
+.nav__list {
+    list-style: none;
+    padding: 0;
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+}
+
+.nav__link {
+    color: #ffffff;
+    text-decoration: none;
+    font-weight: bold;
+}
+
+.nav__link:hover {
+    color: #03dac6;
+}
+
+.sidebar {
+    background-color: #1e1e1e;
+    padding: 20px;
+    border-radius: 8px;
+}
+
+.sidebar--left {
+    grid-area: sidebar-left;
+}
+
+.sidebar--right {
+    grid-area: sidebar-right;
+}
+
+.sidebar__title {
+    color: #03dac6;
+    font-size: 1.2rem;
+    margin-top: 0;
+}
+
+.main-content {
+    grid-area: main;
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 20px;
+}
+
+.article {
+    background-color: #1e1e1e;
+    padding: 25px;
+    border-radius: 8px;
+}
+
+.article__title {
+    color: #bb86fc;
+    margin-top: 0;
+}
+
+.article__text {
+    line-height: 1.7;
+}
+
+.footer {
+    grid-area: footer;
+    background-color: #1e1e1e;
+    padding: 15px;
+    text-align: center;
+    border-radius: 8px;
+    border-top: 3px solid #03dac6;
+}
+
+.footer__text {
+    margin: 0;
+    color: #a0a0a0;
+}
+
+@media (max-width: 900px) {
+    .page-wrapper {
+        grid-template-columns: 1fr;
+        grid-template-areas: 
+            "header"
+            "main"
+            "sidebar-left"
+            "sidebar-right"
+            "footer";
+    }
+}

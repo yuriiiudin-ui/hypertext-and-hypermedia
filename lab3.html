@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="uk">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Lab 3 - Dynamic HTML & JS</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f9f9f9;
+            color: #333;
+            padding: 20px;
+            max-width: 800px;
+            margin: 0 auto;
+        }
+        h1, h2 {
+            color: #2c3e50;
+        }
+        .task-block {
+            background: #fff;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+            margin-bottom: 20px;
+        }
+        button {
+            background: #3498db;
+            color: #fff;
+            border: none;
+            padding: 10px 15px;
+            cursor: pointer;
+            border-radius: 4px;
+        }
+        button:hover {
+            background: #2980b9;
+        }
+        #clock {
+            font-size: 24px;
+            font-weight: bold;
+            color: #e74c3c;
+            margin-top: 10px;
+        }
+    </style>
+</head>
+<body>
+    <h1>Лабораторна робота №3: JS DOM та Таймери</h1>
+
+    <div class="task-block">
+        <h2>Завдання 1: Зміна розміру шрифту елемента</h2>
+        <p id="target-element">Цей текст змінить розмір за допомогою функції.</p>
+        <button onclick="changeFontSize('target-element', '24px')">Збільшити до 24px</button>
+        <button onclick="changeFontSize('target-element', '16px')">Скинути до 16px</button>
+    </div>
+
+    <div class="task-block">
+        <h2>Завдання 2: Зміна розміру всіх абзаців (p)</h2>
+        <p>Абзац 1: Docker контейнери.</p>
+        <p>Абзац 2: CI/CD пайплайни.</p>
+        <p>Абзац 3: Бази даних PostgreSQL.</p>
+        <button onclick="changeAllParagraphsFontSize()">Встановити всім абзацам 15px</button>
+    </div>
+
+    <div class="task-block">
+        <h2>Завдання 3: Текстовий годинник</h2>
+        <div id="clock">00:00:00</div>
+    </div>
+
+    <script>
+        // Task 1
+        function changeFontSize(elementId, fontSize) {
+            const el = document.getElementById(elementId);
+            if (el) {
+                el.style.fontSize = fontSize;
+            }
+        }
+
+        // Task 2
+        function changeAllParagraphsFontSize() {
+            const paragraphs = document.getElementsByTagName('p');
+            for (let i = 0; i < paragraphs.length; i++) {
+                // Використання setAttribute для зміни style, як вимагається
+                let currentStyle = paragraphs[i].getAttribute('style') || '';
+                // Щоб не перезатерти інші стилі, додаємо або оновлюємо fontSize
+                paragraphs[i].setAttribute('style', currentStyle + '; font-size: 15px;');
+            }
+        }
+
+        // Task 3
+        function updateClock() {
+            const now = new Date();
+            const timeString = now.toLocaleTimeString('uk-UA');
+            document.getElementById('clock').textContent = timeString;
+        }
+        
+        setInterval(updateClock, 1000);
+        updateClock(); // ініціалізація відразу
+    </script>
+</body>
+</html>

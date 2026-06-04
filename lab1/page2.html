@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="uk">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tech Blog - DevOps Практики</title>
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+    <header>
+        <h1>Техноблог: Backend, DevOps та Залізо</h1>
+    </header>
+    <nav>
+        <a href="index.html">Головна</a>
+        <a href="page2.html">DevOps Практики</a>
+        <a href="page3.html">Огляд Обладнання</a>
+    </nav>
+    <main>
+        <article>
+            <section>
+                <h2>Основи Docker та контейнеризації</h2>
+                <p>Docker змінив те, як ми доставляємо програмне забезпечення. Замість того, щоб налаштовувати середовище на кожному сервері, ми пакуємо наш додаток у <em>контейнер</em>.</p>
+                <h3>Приклад простого Dockerfile</h3>
+                <pre><code>
+FROM python:3.9-slim
+WORKDIR /app
+COPY requirements.txt .
+RUN pip install -r requirements.txt
+COPY . .
+CMD ["python", "app.py"]
+                </code></pre>
+            </section>
+        </article>
+        <aside>
+            <h3>Корисні посилання</h3>
+            <ul>
+                <li><a href="#">Офіційна документація Docker</a></li>
+                <li><a href="#">Kubernetes для початківців</a></li>
+            </ul>
+        </aside>
+    </main>
+    <footer>
+        <p>&copy; 2026 Tech Blog. Всі права захищені.</p>
+    </footer>
+</body>
+</html>
